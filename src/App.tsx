@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 interface IAppState {
@@ -17,23 +16,18 @@ class App extends Component<{}, IAppState> {
     }
   }
 
+  componentDidMount() {
+    fetch('https://rickandmortyapi.com/api/character/')
+      .then(response => response.json());
+      // no matter what comes back from your fetch request, it's an ANY type by default
+      // .then(( result: [] )  => {})
+      .then(({ results })  => this.setState({ characters: results as [] }));
+  }
+
   render(){
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+
       </div>
     );
   }
