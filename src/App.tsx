@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import CharacterCard from './Components/CharacterCard';
 import { ICharacter } from './types'
 
 interface IAppState {
@@ -31,10 +32,12 @@ class App extends Component<{}, IAppState> {
       .then(({ results })  => this.setState({ characters: results as ICharacter[] }))
   }
 
+  showCharacters = () => this.state.characters.map(character => <CharacterCard key={ character.id } character={ character }/>)
+
   render(){
     return (
       <div className="App">
-
+        { this.showCharacters() }
       </div>
     );
   }
