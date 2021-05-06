@@ -1,7 +1,11 @@
 import { ICharacter } from '../types'
 
 interface ICharacterCardProps {
-    character: ICharacter
+    character: ICharacter;
+    // randomFunction: (url: string, id: number) => void
+    randomFunction: (url: string, id: number) => number
+    // randomFunction: (event: Event) => number
+
 }
 
 // const CharacterCard:  React.FC = (props) => {

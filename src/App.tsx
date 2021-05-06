@@ -23,6 +23,7 @@ class App extends Component<{}, IAppState> {
   }
 
   // fetchCharacters = (url: string, id: number) => {}
+  randomFunction = (url: string, id: number) => 7
 
   componentDidMount() {
     fetch('https://rickandmortyapi.com/api/character/')
@@ -32,7 +33,7 @@ class App extends Component<{}, IAppState> {
       .then(({ results })  => this.setState({ characters: results as ICharacter[] }))
   }
 
-  showCharacters = () => this.state.characters.map(character => <CharacterCard key={ character.id } character={ character }/>)
+  showCharacters = () => this.state.characters.map(character => <CharacterCard key={ character.id } character={ character } randomFunction={ this.randomFunction }/>)
 
   render(){
     return (
