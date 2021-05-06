@@ -2,7 +2,21 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+interface IAppState {
+  name: string;
+  characters: [];
+}
+
+class App extends Component<{}, IAppState> {
+
+  constructor(props: {}){
+    super(props)
+    this.state = {
+      name: "Bryan",
+      characters: []
+    }
+  }
+
   render(){
     return (
       <div className="App">
